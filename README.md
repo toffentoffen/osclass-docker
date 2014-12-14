@@ -1,5 +1,5 @@
-osclass-docker
-==============
+# ![Osclass logo][osclass-logo] osclass-docker
+
 
 This is a containerized version of [Osclass][osclass]
 This container has all the needed configuration to run smoothly this awesome open source classifieds site for free.
@@ -145,6 +145,7 @@ Disabling .htaccess
     RUN a2enmod rewrite
 
 [osclass]: http://osclass.org/
+[osclass-logo]: http://osclass.org/oc-content/themes/osclass_org/images/logo.jpg
 [preview]: http://osclass.org/wp-content/uploads/2011/01/single_job_board-1024x729.png
 [tutum/lamp]: https://registry.hub.docker.com/u/tutum/lamp/
 [step1-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step1.png
