@@ -3,24 +3,16 @@ osclass-docker
 
 This is a containerized version of [Osclass][osclass]
 This container has all the needed configuration to run smoothly this awesome open source classifieds site for free.
-
-This containarized version of Osclass is based in the [tutum-docker-lamp container][tutum/lamp] 
-
 ![Preview of Osclass][osclass-docker-image]
+This containarized version of Osclass is based in the [tutum-docker-lamp container][tutum/lamp] 
 
 Usage
 -----
 
-To create the image `morfeo8marc/osclass-docker`, execute the following command on the tutum-docker-lamp folder:
+To create the image `morfeo8marc/osclass-docker`, execute the following command on the osclass-docker folder that you have created by cloning the project with `git clone https://github.com/morfeo8marc/osclass-docker.git`:
 
 ``` bash
 docker build -t morfeo8marc/osclass-docker .
-```
-
-You can now push your new image to the registry:
-
-``` bash
-docker push morfeo8marc/osclass-docker
 ```
 
 Running your LAMP docker image
@@ -29,8 +21,11 @@ Running your LAMP docker image
 Start your image binding the external ports 80 and 3306 in all interfaces to your container:
 
 ``` bash
-docker run -d -p 80:80 -p 3306:3306 morfeo8marc/osclass-docker
+docker run -d -p 80:80 -p 3306:3306 morfeo8marc/osclass-docker --name osclass-docker
 ```
+
+The `--name` argument is used to give the container a human remembeable name beside the UUI that dockers generated for every container.
+
 Test your deployment open your browser an go to [http://localhost/](http://localhost/). If you see the following site everything is installed correctly so far. Only the [installation](#Osclass-installation-steps) for your personal osclass site is needed.
 
 ![Main page pre configuration][step1-image]
@@ -40,7 +35,7 @@ Connecting to the bundled MySQL server from outside the container
 
 The first time that you run your container, two new users `admin`  with all privileges and  `osclass` with all the privilege to access the osclassdb database,will be created in MySQL with a random password. To get the password, check the logs of the container by running:
 ``` bash
-docker logs $CONTAINER_ID
+docker logs osclass-docker
 ```
 You will see an output like the following:
 ``` bash
