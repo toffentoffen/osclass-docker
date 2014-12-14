@@ -123,29 +123,16 @@ You must see the following message and click on the `install` button. Don't worr
 ![Osclass requirements check][step2-image]
 If all passes click on the `Run the install` button.
 3. Now it's time to configure the database. At this point is where you will the information. retrieved from the log.
-
 ![Osclass database configuration][step3-1-image]
-
-
 4. Only on step is left, the Osclass user and contact info information. Fill up the admin username and password as well as the contact information with a web title and a valid contact e-amil. And finally choce your base locations for your classifieds.
-
 ![Osclass admin user and contact information][step3-2-image]
-
-
 5. That's it. You have a fresh awesome Osclass installation. 
-
 ![Osclass admin user and contact information][step4-image]
-
 Now you go to the backend clicking te `Finish and go to the administration panel`.
-
 ![Osclass admin panel login][step5-image]
-
 When entering you admin credentials you will see:
-
 ![Osclass admin panel][step6-image]
-
 Or visiting your homepage, where now no error message will be printed and you will just see your Osclass homepage.
-
 ![Osclass homepage][osclass-docker-image]
 
 Disabling .htaccess
