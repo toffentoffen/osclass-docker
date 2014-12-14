@@ -31,9 +31,9 @@ Start your image binding the external ports 80 and 3306 in all interfaces to you
 ``` bash
 docker run -d -p 80:80 -p 3306:3306 morfeo8marc/osclass-docker
 ```
-Test your deployment open your browser an go to http://localhost/
+Test your deployment open your browser an go to [http://localhost/](http://localhost/). If you see the following site everything is installed correctly so far. Only the installation of your personal osclass site is needed.
 
-![Main page pre configuration][step1-image]
+![Main page pre configuration](osclass-installation-steps/osclass-step1)
 
 Connecting to the bundled MySQL server from outside the container
 -----------------------------------------------------------------
