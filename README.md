@@ -11,18 +11,18 @@ Usage
 
 To create the image `morfeo8marc/osclass-docker`, execute the following command on the osclass-docker folder that you have created by cloning the project with `git clone https://github.com/morfeo8marc/osclass-docker.git`:
 
-``` bash
-docker build -t morfeo8marc/osclass-docker .
-```
+    docker build -t morfeo8marc/osclass-docker .
+
 
 Running your LAMP docker image
 ------------------------------
 
 Start your image binding the external ports 80 and 3306 in all interfaces to your container:
 
-``` bash
-docker run -d -p 80:80 -p 3306:3306 morfeo8marc/osclass-docker --name osclass-docker
-```
+
+    docker run -d -p 80:80 -p 3306:3306 morfeo8marc/osclass-docker --name osclass-docker
+
+
 
 The `--name` argument is used to give the container a human remembeable name beside the UUI that dockers generated for every container.
 
@@ -34,11 +34,11 @@ Connecting to the bundled MySQL server from outside the container
 -----------------------------------------------------------------
 
 The first time that you run your container, two new users `admin`  with all privileges and  `osclass` with all the privilege to access the osclassdb database,will be created in MySQL with a random password. To get the password, check the logs of the container by running:
-``` bash
-docker logs osclass-docker
-```
+
+	docker logs osclass-docker
+
 You will see an output like the following:
-``` bash
+
 	========================================================================
 	You can now connect to this MySQL Server using:
 
@@ -56,36 +56,35 @@ You will see an output like the following:
 	Please remember to change the above password as soon as possible!
 	MySQL user 'root' has no password but only allows local connections
 	========================================================================
-```
+
 
 In this case, `47nnf4FweaKu` is the password allocated to the `admin` user.
 
 You can then connect to MySQL:
-``` bash
-mysql -uadmin -p47nnf4FweaKu
-```
+
+	mysql -uadmin -p47nnf4FweaKu
+
 Remember that the `root` user does not allow connections from outside the container - you should use this `admin` user instead!
 
 If you want to connect with the `osclass`user:
-``` bash
-mysql -uosclass -pJMf5FsRYEKQY
-```
+
+	mysql -uosclass -pJMf5FsRYEKQY
+
 
 Setting a specific password for the MySQL server admin account
 --------------------------------------------------------------
 
 If you want to use a preset password instead of a random generated one, you can set the environment variable `MYSQL_PASS` to your specific password to the `admin user and `MYSQL_OSCLASS_USER` for the `osclass` user when running the container:
-``` bash
-docker run -d -p 80:80 -p 3306:3306 -e MYSQL_PASS="mypass" -e MYSQL_OSCLASS_USER="myosclasspass"  morfeo8marc/osclass-docker
-```
+
+	docker run -d -p 80:80 -p 3306:3306 -e MYSQL_PASS="mypass" -e MYSQL_OSCLASS_USER="myosclasspass"  morfeo8marc/osclass-docker
+
 You can now test your new admin password:
-``` bash
-mysql -uadmin -p"mypass"
-```
+
+	mysql -uadmin -p"mypass"
+
 You can now test your new admin password:
-``` bash
-mysql -uosclass -p"myosclasspass"
-```
+
+	mysql -uosclass -p"myosclasspass"
 
 Osclass installation steps
 --------------------------------------------------------------
@@ -95,22 +94,22 @@ To fully install the osclass classified site, you must go trough the osclass's i
 - Database user name's password.
 
 To get this data you can get it form the container log:
-``` bash
-docker logs $CONTAINER_ID
-```
+
+	docker logs $CONTAINER_ID
+
 You will see an output like the following:
-``` bash
-========================================================================
-This information will be needed in the Osclass installation process.
 
-Go to http://localhost
-You will need the following information:
+	========================================================================
+	This information will be needed in the Osclass installation process.
 
-Database name: osclassdb
-User name: osclass
-Password: JMf5FsRYEKQY
-========================================================================
-```
+	Go to http://localhost
+	You will need the following information:
+
+	Database name: osclassdb
+	User name: osclass
+	Password: JMf5FsRYEKQY
+	========================================================================
+
 Once you have all the needed data for the installation do:
 1. Go to osclass home page
 Go to [http://localhost](http://localhost) or if you have a domain for the host where you have build o pulled your docker image http://yourdomain.com.
@@ -146,14 +145,13 @@ Disabling .htaccess
 
 [osclass]: http://osclass.org/
 [osclass-logo]: http://osclass.org/oc-content/themes/osclass_org/images/logo.jpg
-[preview]: http://osclass.org/wp-content/uploads/2011/01/single_job_board-1024x729.png
 [tutum/lamp]: https://registry.hub.docker.com/u/tutum/lamp/
-[step1-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step1.png
-[step2-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step2.png
-[step3-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step3.png
-[step3-1-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step3-1.png
-[step3-2-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step3-2.png
-[step4-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step4.png
-[step5-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step5.png
-[step6-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step6.png
-[osclass-docker-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-docker.png
+[step1-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step1.png?raw=true
+[step2-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step2.png?raw=true
+[step3-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step3.png?raw=true
+[step3-1-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step3-1.png?raw=true
+[step3-2-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step3-2.png?raw=true
+[step4-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step4.png?raw=true
+[step5-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step5.png?raw=true
+[step6-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-step6.png?raw=true
+[osclass-docker-image]: https://github.com/morfeo8marc/osclass-docker/blob/master/osclass-installation-steps/osclass-docker.png?raw=true
