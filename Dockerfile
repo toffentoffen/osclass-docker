@@ -1,6 +1,6 @@
 FROM ubuntu:trusty
 
-MANTAINER Marc Navarro https://github.com/morfeo8marc
+MAINTAINER = Marc Navarro https://github.com/morfeo8marc
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
